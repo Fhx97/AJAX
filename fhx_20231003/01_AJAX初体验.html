@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+  axios库地址：https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
+  省份数据地址：http://hmajax.itheima.net/api/province
+
+  AJAX主要实现浏览器和服务器之间通信，动态数据交互
+
+  目标：使用axios库，获取省份列表数据，展示到页面上。 
+  -->
+  <p class="my-p"></p>
+  <!-- 导入axios库 -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- 使用axios函数 -->
+  <script>
+    axios({
+      url: 'http://hmajax.itheima.net/api/province'
+    }).then(result => {
+      console.log(result)
+      console.log(result.data.list)
+      console.log(result.data.list.join('<br>'))
+      document.querySelector('.my-p').innerHTML = result.data.list.join('<br>')
+    })
+  </script>
+</body>
+
+</html>
